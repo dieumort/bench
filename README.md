@@ -8,7 +8,7 @@
 - c++11
 
 ## Usage
-`./bench.sh`
+`$ ./bench.sh`
 
 ## Licence
 [MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
