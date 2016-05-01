@@ -3,18 +3,23 @@
 #-------------------------------------------------------------------------------
 
 # parameters
-TIMEOUT=5
+TIMEOUT=10
+TRIALS=5
 INIT_SCALE=1
 INIT_BASE=1000000
 MAX_SIZE=90000000
 
-# executions
-CPPMAIN=main.cpp
-CPPOUT=cpp.bench
+# C++ 11
+CPP_MAIN=main.cpp
+CPP_OUT=a.out
+if [ ${CPP_OUT} -ot ${CPP_MAIN} ]; then
+    g++ -O3 -std=c++11 ${CPP_MAIN} -o ${CPP_OUT}
+fi
 
-# update
-if [ ${CPPOUT} -ot ${CPPMAIN} ]; then
-    g++ -O3 -std=c++11 ${CPPMAIN} -o ${CPPOUT}
+# Java 8
+JAVA_MAIN=Main
+if [ ${JAVA_MAIN}.class -ot ${JAVA_MAIN}.java ]; then
+    javac ${JAVA_MAIN}.java
 fi
 
 # execute function
@@ -27,7 +32,7 @@ function execute() {
     VAL=$((${SCALE} * ${BASE}))
     while [ ${VAL} -le ${MAX_SIZE} -a ${TIME} -gt 0 ]
     do
-        timeout ${TIME} $1 ${VAL}
+        timeout ${TIME} $1 ${VAL} ${TRIALS}
 
         SCALE=$((${SCALE} + 1))
         if [ ${SCALE} -eq 10 ]; then
@@ -43,7 +48,9 @@ function execute() {
 }
 
 # execute for some languages
-echo "# c++11"
-execute ./${CPPOUT}
+echo "# C++ 11"
+execute "./${CPP_OUT}"
+echo "# Java 8"
+execute "java ${JAVA_MAIN}"
 
 #-------------------------------------------------------------------------------

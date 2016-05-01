@@ -1,11 +1,11 @@
 # bench
 
-いくつかの言語に対して，クイックソートによるベンチマークを行う．
+This program benchmarks some languages with quick sort algorithm.
 
 ## Requirement
-- Linux環境
-- bash
-- c++11
+- bash (+ timeout command)
+- C++ 11 or later
+- Java 8 or later
 
 ## Usage
 `$ ./bench.sh`
