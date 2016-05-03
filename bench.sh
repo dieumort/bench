@@ -6,8 +6,11 @@
 TIMEOUT=10
 TRIALS=5
 INIT_SCALE=1
-INIT_BASE=1000000
+INIT_BASE=100000
 MAX_SIZE=90000000
+
+[ $# -gt 0 ] && TIMEOUT=$1
+[ $# -gt 1 ] && TRIALS=$2
 
 # C++ 11
 CPP_MAIN=main.cpp
@@ -21,6 +24,9 @@ JAVA_MAIN=Main
 if [ ${JAVA_MAIN}.class -ot ${JAVA_MAIN}.java ]; then
     javac ${JAVA_MAIN}.java
 fi
+
+# Python 2
+PY_MAIN=main.py
 
 # execute function
 # $1: execute command (ex. ./a.out)
@@ -49,8 +55,12 @@ function execute() {
 
 # execute for some languages
 echo "# C++ 11"
-execute "./${CPP_OUT}"
+execute ./${CPP_OUT}
 echo "# Java 8"
 execute "java ${JAVA_MAIN}"
+echo "# Python 2"
+execute "python2 ${PY_MAIN}"
+
+exit 0
 
 #-------------------------------------------------------------------------------

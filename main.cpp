@@ -55,15 +55,15 @@ void quick_sort(RAIter first, RAIter last) {
   // find pivot
   auto mid = first + (distance / 2);
 
-  // begin > mid
+  // first > mid
   if (less(*mid, *first)) {
     std::swap(*first, *mid);
   }
-  // begin > end - 1
+  // first > last - 1
   if (less(*(last - 1), *first)) {
     std::swap(*first, *(last - 1));
   }
-  // mid > end - 1
+  // mid > last - 1
   if (less(*(last - 1), *mid)) {
     std::swap(*mid, *(last - 1));
   }
