@@ -6,6 +6,8 @@ This program benchmarks some languages with quick sort algorithm.
 - bash (+ timeout command)
 - C++ 11 or later
 - Java 8 or later
+- Python 2
+- Go 1.6 or later
 
 ## Usage
 `$ ./bench.sh ${TIMEOUT} ${TRIALS}`
