@@ -1,1 +1,3 @@
-*.bench
+cpp_bench
+go_bench
+Main.class
