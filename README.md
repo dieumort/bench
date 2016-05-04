@@ -14,6 +14,9 @@ This program benchmarks some languages with quick sort algorithm.
 - ${TIMEOUT}: timeout of each benchmark program
 - ${TRIALS}: count of trials for each job
 
+## Sample Result
+![sample](https://raw.githubusercontent.com/dieumort/bench/master/sample/sample.png)
+
 ## Licence
 [MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
 
